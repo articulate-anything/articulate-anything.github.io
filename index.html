@@ -65,7 +65,9 @@
     }
 
     .demo-gallery img {
-      width: calc(20% - 4px);
+      /* change this to  affect no. of images per row.
+      For example, 25% - 4 px means 100/25 = 4 images per row */
+      width: calc(25% - 4px);
       height: auto;
       object-fit: cover;
       border-radius: 5px;
@@ -94,14 +96,14 @@
       font-weight: bold;
     }
 
+    /* 
     .code-container {
       position: relative;
-      max-height: 300px;
+      max-height: 400px;
       overflow-y: auto;
-      border: 1px solid #e0e0e0;
-      border-radius: 5px;
+      border: 0px solid #e0e0e0;
+      border-radius: 0px;
       background-color: #f5f5f5;
-      padding: 10px;
       margin-top: 10px;
     }
 
@@ -122,6 +124,48 @@
 
     .code-container::-webkit-scrollbar-thumb:hover {
       background: #555;
+    }
+ */
+
+    .code-container {
+      position: relative;
+      max-height: 400px;
+      /* Adjust based on your layout */
+      overflow-y: auto;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      flex-grow: 1;
+      width: 100%;
+      max-width: none;
+    }
+
+    .code-container::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .code-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .code-container::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    .code-container::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    pre {
+      margin: 0;
+      padding: 0;
+    }
+
+    code {
+      font-size: 14px;
+      line-height: 1.4;
+      padding: 5px;
+      display: block;
     }
 
 
