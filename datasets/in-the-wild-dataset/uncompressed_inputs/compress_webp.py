@@ -76,8 +76,8 @@ for input_file in files:
         print(f"Processing {input_file}...")
         compress_animated_webp(input_path, output_path, quality=quality,
                                method=4, frame_reduction_factor=frame_reduction_factor)
-    else:
-        print(f"Skipping {input_file} (size below threshold)")
-        # Optionally, copy the file to the output directory without compression
-        import shutil
-        shutil.copy2(input_path, output_path)
+    # else:
+    #     print(f"Skipping {input_file} (size below threshold)")
+    #     # Optionally, copy the file to the output directory without compression
+    #     import shutil
+    #     shutil.copy2(input_path, output_path)
