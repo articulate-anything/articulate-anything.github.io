@@ -181,6 +181,34 @@
       font-size: 14px;
       line-height: 1.5;
     }
+
+
+    Add this new style for the image grid .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .image-item {
+      flex: 1 1 300px;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .image-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* .image-caption {
+      margin-top: 10px;
+      font-style: italic;
+      color: #666;
+    } */
   </style>
 </head>
 
@@ -326,7 +354,10 @@
                 <h2 class="title is-3"><span class="dvima"><span class="emoji">🌳</span> In-the-wild
                     reconstructions</span></h2>
                 <p style="font-size: 125%">
-                  In this demo, we visualize the articulation results for each in the wild videos.
+                  In this demo, we visualize the articulation results for in-the-wild videos. These videos were casually
+                  captured on an iPhone (e.g., titled angles) in cluttered environments, showing our ability to handle
+                  diverse, complex,
+                  and realistic object affordances.
                 </p>
               </div>
             </div>
@@ -434,44 +465,140 @@
       </section>
 
 
-      <section class="section" id="BibTeX">
-        <div class="container is-max-desktop content">
-          <h2 class="title">BibTeX</h2>
-          <pre><code>@article{articulate-anything2024,
-  <!-- author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021}, -->
-}</code></pre>
-        </div>
-      </section>
-
-
-      <footer class="footer">
-        <div class="container">
-          <div class="content has-text-centered">
-            <a class="icon-link" href="../papers/articulate-anything.pdf" class="external-link" disabled>
-              <i class="fas fa-file-pdf"></i>
-            </a>
-            <a class="icon-link" href="https://arxiv.org/abs/2312.09067" class="external-link" disabled>
-              <i class="ai ai-arxiv"></i>
-            </a>
-            <a class="icon-link" href="https://github.com/articulate-anything" class="external-link" disabled>
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-          <div class="columns is-centered">
-            <div class="column is-8">
-              <div class="content" , style="text-align: center;">
-                <p>
-                  This website was developed by referencing <a
-                    href="https://github.com/nerfies/nerfies.github.io">this</a>.
+      <!-- New Robotics Application section -->
+      <section class="section">
+        <div class="container is-max-widescreen">
+          <div class="rows">
+            <div class="rows is-centered">
+              <div class="row is-full-width">
+                <h2 class="title is-3"><span class="dvima"><span class="emoji">🤖</span> Robotics Application</span>
+                </h2>
+                <p style="font-size: 125%">
+                  <!-- Content for Robotics Application will be added here -->
+                  TODO
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </footer>
+      </section>
+
+
+
+      <!-- New Method section -->
+      <section class="section">
+        <div class="container is-max-widescreen">
+          <div class="rows">
+            <div class="rows is-centered">
+              <div class="row is-full-width">
+                <h2 class="title is-3"><span class="dvima"><span class="emoji">🧠</span> Method</span></h2>
+                <p style="font-size: 125%">
+                  <!-- Content for Method will be added here -->
+                  TODO
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- Updated Quantitative Results section -->
+      <section class="section">
+        <div class="container is-max-widescreen">
+          <div class="rows">
+            <div class="rows is-centered">
+              <div class="row is-full-width">
+                <h2 class="title is-3"><span class="dvima"><span class="emoji">📊</span> Quantitative Results</span>
+                </h2>
+                <div class="image-grid"></div>
+
+                <p class="is-size-5">
+                  On the standard PartNet-Mobility dataset, <span class="dnerf">Articulate-Anything</span>
+                  <strong>substantially</strong> outperforms prior works in automatic articulation.
+
+                </p> <br />
+
+
+                <div class="image-item">
+                  <img src="assets/images/baselines.png" alt="Baseline Comparisons">
+                  <p class="image-caption">Figure 1: Joint prediction success rate compared to other baselines</p>
+                </div>
+
+
+                <p class="is-size-5">
+                  In an ablation experiment, we demonstrate <span class="dnerf">Articulate-Anything</span>'s ability
+                  to handle a diverse
+                  range of input modalities including texts, images, and videos. We found that richer and more
+                  grounded modalities such as videos
+                  enables higher articulation accuracy.
+                </p> <br />
+
+
+                <div class="image-item">
+                  <img src="assets/images/input_modality.png" alt="Input Modality Analysis">
+                  <p class="image-caption">Figure 2: Comparison of input modalities</p>
+                </div>
+
+                <p class="is-size-5">
+                  By leveraging a visual critic, <span class="dnerf">Articulate-Anything</span> can self-evaluate its
+                  predictions and self-improve over subsequent iterations.
+
+                </p><br />
+
+                <div class="image-item">
+                  <img src="assets/images/auto_improv.png" alt="Automatic Improvement">
+                  <p class="image-caption">Figure 3: Automatic improvement results</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{articulate-anything2024,
+  <!-- author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021}, -->
+}</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="../papers/articulate-anything.pdf" class="external-link" disabled>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://arxiv.org/abs/2312.09067" class="external-link" disabled>
+          <i class="ai ai-arxiv"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/articulate-anything" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content" , style="text-align: center;">
+            <p>
+              This website was developed by referencing <a href="https://github.com/nerfies/nerfies.github.io">this</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
 </body>
