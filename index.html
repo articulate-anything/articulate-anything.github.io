@@ -66,7 +66,7 @@
 
     .demo-gallery img {
       /* change this to  affect no. of images per row.
-      For example, 25% - 4 px means 100/25 = 4 images per row */
+      For example, 25% - 4px means 100/25 = 4 images per row */
       width: calc(25% - 4px);
       height: auto;
       object-fit: cover;
@@ -95,37 +95,6 @@
       font-size: 1.2em;
       font-weight: bold;
     }
-
-    /* 
-    .code-container {
-      position: relative;
-      max-height: 400px;
-      overflow-y: auto;
-      border: 0px solid #e0e0e0;
-      border-radius: 0px;
-      background-color: #f5f5f5;
-      margin-top: 10px;
-    }
-
-
-    .code-container::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .code-container::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 4px;
-    }
-
-    .code-container::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 4px;
-    }
-
-    .code-container::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
- */
 
     .code-container {
       position: relative;
@@ -168,8 +137,6 @@
       display: block;
     }
 
-
-
     pre {
       margin: 0;
       white-space: pre-wrap;
@@ -177,13 +144,11 @@
     }
 
     code {
-      /* font-family: 'Courier New', Courier, monospace; */
       font-size: 14px;
       line-height: 1.5;
     }
 
-
-    Add this new style for the image grid .image-grid {
+    .image-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -204,11 +169,45 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* .image-caption {
-      margin-top: 10px;
-      font-style: italic;
-      color: #666;
-    } */
+    .subtitle {
+      font-size: 2rem;
+      margin-top: 0.5rem;
+      /* Adjust this value to control the space between title and subtitle */
+      display: block;
+      /* Ensures the subtitle is on a new line */
+      width: 100%;
+      /* Makes sure it takes full width */
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 48%;
+      /* padding-bottom: 42.25%; */
+      /* 16:9 aspect ratio */
+      margin: 0 auto;
+    }
+
+    #replay-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #demo-video {
+      padding-top: 0rem;
+      padding-bottom: 2rem;
+    }
+
+    .hero-body {
+      padding-bottom: 0rem;
+    }
+
+    .section {
+      padding-top: 2rem;
+    }
   </style>
 </head>
 
@@ -221,9 +220,9 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">
               <span class="logo"></span>
-              <span class="small-caps">articulate-anything</span><br>
-              <span style="font-size: 2rem;">Automatic Modeling of Articulated Objects via Vision-Language
-                Foundation Model</span>
+              <span class="small-caps">articulate-anything</span>
+              <span class="subtitle">Automatic Modeling of Articulated Objects via Vision-Language Foundation
+                Model</span>
             </h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -301,15 +300,17 @@
     </div>
   </section>
 
-
-
-  <div class="content has-text-centered">
-    <!-- <video id="replay-video" controls preload playsinline width="75%"> -->
-    <source src="assets/inputs/test.mp4" type="video/mp4">
-    </video>
-  </div>
-
-
+  <section class="section" id="demo-video">
+    <div class="container is-max-desktop">
+      <div class="content has-text-centered">
+        <div class="video-container">
+          <video id="replay-video" controls preload playsinline autoplay>
+            <source src="videos/articulate_anything_tiktokified.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section">
     <div class="container is-max-desktop">
@@ -321,18 +322,22 @@
             <p>
               Interactive 3D simulated objects are crucial in AR/VR, animations, and robotics, serving as the
               foundational elements that drive immersive experiences and advanced automation.
-              However, articulating these objects requires extensive human effort and expertise, limiting their broader
+              However, articulating these objects requires extensive human effort and expertise, limiting their
+              broader
               applications.
               To overcome this challenge, we present <span class="dnerf">Articulate-Anything</span>, a system that
               automates the articulation of diverse, complex objects from different input modalities, including text,
               images, and videos.
-              <span class="dnerf">Articulate-Anything</span> leverages Vision-Language Models (VLMs) to generate Python
-              programs compilable into articulated Unified Robot Description Format (URDF) files. Our system consists of
+              <span class="dnerf">Articulate-Anything</span> leverages Vision-Language Models (VLMs) to generate
+              Python
+              programs compilable into articulated Unified Robot Description Format (URDF) files. Our system consists
+              of
               a mesh retrieval mechanism and
               dual actor-critic closed-loop systems. The agentic system is capable of automatically generating
               articulation, inspecting simulated predictions against ground-truths, and self-correcting errors.
               Qualitative evaluations demonstrate <span class="dnerf">Articulate-Anything</span>'s capability to
-              articulate complex and even ambiguous object affordances by leveraging rich grounded inputs. In extensive
+              articulate complex and even ambiguous object affordances by leveraging rich grounded inputs. In
+              extensive
               quantitative experiments on the standard PartNet-Mobility dataset,
               <span class="dnerf">Articulate-Anything</span> substantially outperforms prior work in automatic
               articulation, increasing the success rate from 8.7% to 75%, setting a new bar for state-of-art
@@ -354,7 +359,8 @@
                 <h2 class="title is-3"><span class="dvima"><span class="emoji">🌳</span> In-the-wild
                     reconstructions</span></h2>
                 <p style="font-size: 125%">
-                  In this demo, we visualize the articulation results for in-the-wild videos. These videos were casually
+                  In this demo, we visualize the articulation results for in-the-wild videos. These videos were
+                  casually
                   captured on an iPhone (e.g., titled angles) in cluttered environments, showing our ability to handle
                   diverse, complex,
                   and realistic object affordances.
