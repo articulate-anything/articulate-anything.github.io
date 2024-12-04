@@ -291,8 +291,9 @@
         <a class="navbar-item" href="#method">Method</a>
         <a class="navbar-item" href="#demo">In-the-wild Reconstructions</a>
         <a class="navbar-item" href="#robotics-application">Robotics Application</a>
+        <a class="navbar-item" href="#mesh-gen">Mesh Generation</a>
         <a class="navbar-item" href="#quantitative-results">Quantitative Results</a>
-        <a class="navbar-item" href="#bibtex">BibTeX</a>
+        <!-- <a class="navbar-item" href="#bibtex">BibTeX</a> -->
       </div>
     </div>
   </nav>
@@ -409,7 +410,7 @@
       <div class="content has-text-centered">
         <div class="video-container">
           <video id="replay-video" controls preload playsinline autoplay>
-            <source src="videos/articulate_anything_tiktokified.mp4" type="video/mp4">
+            <source src="videos/articulate_anything_tiktokified_2_V2.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -426,27 +427,37 @@
             <p>
               Interactive 3D simulated objects are crucial in AR/VR, animations, and robotics, serving as the
               foundational elements that drive immersive experiences and advanced automation.
-              However, creating these interactable objects (i.e., articulation) requires extensive human effort and
+              However, creating these interactable objects (i.e., articulation) requires extensive human
+              effort and
               expertise,
               limiting their broader applications.
-              To overcome this challenge, we present <span class="dnerf">Articulate-Anything</span>, a system that
-              automates the articulation of diverse, complex objects from different input modalities, including text,
+              To overcome this challenge, we present <span class="dnerf">Articulate-Anything</span>, a system
+              that
+              automates the articulation of diverse, complex objects from different input modalities,
+              including text,
               images, and videos.
-              <span class="dnerf">Articulate-Anything</span> leverages Vision-Language Models (VLMs) to generate
+              <span class="dnerf">Articulate-Anything</span> leverages Vision-Language Models (VLMs) to
+              generate
               Python
-              programs compilable into articulated Unified Robot Description Format (URDF) files. Our system consists
+              programs compilable into articulated Unified Robot Description Format (URDF) files. Our system
+              consists
               of
               a mesh retrieval mechanism and
               dual actor-critic closed-loop systems. The agentic system is capable of automatically generating
-              articulation, inspecting simulated predictions against ground-truths, and self-correcting errors.
-              Qualitative evaluations demonstrate <span class="dnerf">Articulate-Anything</span>'s capability to
+              articulation, inspecting simulated predictions against ground-truths, and self-correcting
+              errors.
+              Qualitative evaluations demonstrate <span class="dnerf">Articulate-Anything</span>'s capability
+              to
               articulate complex and even ambiguous object affordances by leveraging rich grounded inputs. In
               extensive
               quantitative experiments on the standard PartNet-Mobility dataset,
               <span class="dnerf">Articulate-Anything</span> substantially outperforms prior work in automatic
-              articulation, increasing the success rate from 8.7-12.2% to 75%, setting a new bar for state-of-art
-              performance. Lastly, to showcase an application, we train multiple robotic policies using generated
-              assets, demonstrating the utility of articulation for finer-grained manipulation beyond pick and place.
+              articulation, increasing the success rate from 8.7-12.2% to 75%, setting a new bar for
+              state-of-art
+              performance. Lastly, to showcase an application, we train multiple robotic policies using
+              generated
+              assets, demonstrating the utility of articulation for finer-grained manipulation beyond pick and
+              place.
             </p>
           </div>
         </div>
@@ -473,9 +484,11 @@
                   <!-- <p class="image-caption">Figure 1: Joint prediction success rate compared to other baselines</p> -->
                 </div>
                 <p style="font-size: 125%; margin-bottom: 20px;">
-                  <span class="dnerf">Articulate-Anything</span> is a state-of-the-art method for articulating diverse
+                  <span class="dnerf">Articulate-Anything</span> is a state-of-the-art method for articulating
+                  diverse
                   in-the-wild objects from diverse input modalities, including
-                  text, images, and videos. We can create high-quality digital twins in simulation that can be used to
+                  text, images, and videos. We can create high-quality digital twins in simulation that can be
+                  used to
                   train robotic skills among
                   other applications in VR/AR and animation.
 
@@ -707,6 +720,8 @@
   </section>
 
 
+
+
   <section class="section" id="robotics-application">
     <div class="container is-max-widescreen">
       <div class="rows">
@@ -863,17 +878,81 @@
 
 
 
-  <!-- Updated Quantitative Results section -->
-  <section class="section" id="quantitative-results">
 
 
-
+  <section class="section" id="mesh-gen">
     <div class="container is-max-widescreen">
       <div class="rows">
         <div class="rows is-centered">
           <div class="row is-full-width">
-            <h2 class="title is-3"><span class="dvima">Quantitative Results</span>
+            <h2 class="title is-3"><span class="dvima"> Mesh Generation</span>
             </h2>
+            <p style="font-size: 125%; margin-bottom: 20px;">
+              Currently, <span class="dnerf">Articulate-Anything</span> employs a mesh retrieval mechanism to exploit
+              existing 3D datasets. Open repositories such as Objaverse contain more than 10 million <b>static</b>
+              objects. Our system can potentially bring those objects to life via articulation. However, as stated, a
+              promising future direction to enable the generation of even
+              more customized assets is to leverage large-scale mesh generation models. Below, we show a few examples of
+              meshes generated by
+              <a target="_blank" rel="noopener noreferrer" href="https://hyperhuman.deemos.com/">Rodin</a> using
+              in-the-wild images. The static meshes are then articulated by <span
+                class="dnerf">Articulate-Anything</span>.
+              </span>
+
+            </p>
+            <div class="container is-max-widescreen">
+              <div class="hero-body">
+                <div class="container video-grid">
+                  <div class="video-item">
+                    <video preload="none" autoplay controls muted loop height="100%" playbackRate="2.0">
+                      <source
+                        src="assets/hyperhuman_deemos/center_cropped_aug_video_rest_to_handle_joint_frontview copy 3 (online-video-cutter.com).mp4"
+                        type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-item">
+                    <video preload="none" autoplay controls muted loop height="100%" playbackRate="2.0">
+                      <source
+                        src="assets/hyperhuman_deemos/center_cropped_aug_video_rest_to_handle_joint_frontview copy (online-video-cutter.com).mp4"
+                        type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-item">
+                    <video preload="none" autoplay controls muted loop height="100%" playbackRate="2.0">
+                      <source
+                        src="assets/hyperhuman_deemos/center_cropped_aug_video_rest_to_handle_joint_frontview (online-video-cutter.com).mp4"
+                        type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-item">
+                    <video preload="none" autoplay controls muted loop height="100%" playbackRate="2.0">
+                      <source
+                        src="assets/hyperhuman_deemos/center_cropped_aug_video_rest_to_handle_joint_frontview copy 2 (online-video-cutter.com).mp4"
+                        type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-item">
+                    <video preload="none" autoplay controls muted loop height="100%" playbackRate="2.0">
+                      <source
+                        src="assets/hyperhuman_deemos/center_cropped_aug_video_rest_to_handle_joint_frontview copy 4 (online-video-cutter.com).mp4"
+                        type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+  </section>
+
+
+
+  <!-- Updated Quantitative Results section -->
+
+  <section class="section" id="quantitative-results">
+    <div class="container is-max-widescreen">
+      <div class="rows">
+        <div class="rows is-centered">
+          <div class="row is-full-width">
+            <h2 class="title is-3"><span class="dvima">Quantitative Results</span></h2>
             <div class="image-grid"></div>
 
             <p class="is-size-5">
@@ -887,37 +966,20 @@
               grounded video inputs and closed-loop actor-critic system,
               <strong>substantially</strong> outperforms these prior works in automatic articulation, setting a new bar
               in
-              state-of-the-art
-              performance.
-
+              state-of-the-art performance.
             </p> <br />
 
             <div class="chart-container">
               <canvas id="modelComparisonChart"></canvas>
-              <p class="image-caption">Articulate-anything has subsantially higher joint prediction success rate
+              <p class="image-caption">Articulate-Anything has substantially higher joint prediction success rate
                 compared to other baselines.</p>
             </div>
-
-            <!-- 
-            <div class="image-item">
-              <img src="assets/images/baselines.png" alt="Baseline Comparisons">
-              <p class="image-caption">Articulate-anything has subsantially higher joint prediction success rate
-                compared to other baselines.</p>
-            </div> -->
-
 
             <p class="is-size-5">
               In an ablation experiment, we found that indeed richer and more
               grounded modalities such as videos
-              enables higher articulation accuracy in our own system.
+              enable higher articulation accuracy in our own system.
             </p> <br />
-
-            <!-- 
-            <div class="image-item">
-              <img src="assets/images/input_modality.png" alt="Input Modality Analysis">
-              <p class="image-caption">More grounded visual inputs such as images or videos improve accuracies in all
-                articulation tasks.</p>
-            </div> -->
 
             <div class="chart-container">
               <canvas id="articulationChart"></canvas>
@@ -926,32 +988,40 @@
             </div>
 
             <p class="is-size-5">
+              We also evaluate the effect of in-context examples on success rates for link placement and joint
+              prediction
+              tasks. The results show that providing more in-context examples significantly improves performance.
+            </p><br />
+
+            <div class="chart-container">
+              <canvas id="inContextLinkPlacementChart"></canvas>
+              <p class="image-caption">Success rate vs. number of in-context examples for Link Placement.</p>
+            </div>
+
+            <div class="chart-container">
+              <canvas id="inContextJointPredictionChart"></canvas>
+              <p class="image-caption">Success rate vs. number of in-context examples for Joint Prediction.</p>
+            </div>
+
+
+            <p class="is-size-5">
               Finally, by leveraging a visual critic, <span class="dnerf">Articulate-Anything</span> can self-evaluate
               its
               predictions and self-improve over subsequent iterations.
-
             </p><br />
 
-            <!-- <div class="image-item">
-              <img src="assets/images/auto_improv.png" alt="Automatic Improvement">
-              <p class="image-caption">Articulate-anything can automatically refine and improve its predictions over
-                subsequent iterations.</p>
-            </div> -->
-
-
-            <!-- <div style="display: flex; justify-content: center;"> -->
             <div class="chart-container">
               <canvas id="linkPlacementChart"></canvas>
               <canvas id="jointPredictionChart"></canvas>
-              <p class="image-caption">Articulate-anything can automatically refine and improve its predictions over
+              <p class="image-caption">Articulate-Anything can automatically refine and improve its predictions over
                 subsequent iterations.</p>
             </div>
+
 
 
           </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 
@@ -959,7 +1029,8 @@
 
 
 
-  <section class="section" id="bibtex">
+
+  <!-- <section class="section" id="bibtex">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@article{le2024articulate,
@@ -970,12 +1041,12 @@
         }
 </code></pre>
     </div>
-  </section>
+  </section> -->
 
 
   <footer class="footer">
     <div class="container">
-      <div class="content has-text-centered">
+      <!-- <div class="content has-text-centered">
         <a class="icon-link" target="_blank" rel="noopener noreferrer" href="assets/articulate-anything_paper.pdf"
           class="external-link" disabled>
           <i class="fas fa-file-pdf"></i>
@@ -988,7 +1059,7 @@
           href="https://github.com/vlongle/articulate-anything" class="external-link" disabled>
           <i class="fab fa-github"></i>
         </a>
-      </div>
+      </div> -->
       <div class="columns is-centered">
         <div class="column is-8">
           <div class="content" , style="text-align: center;">
@@ -1008,9 +1079,7 @@
 </body>
 
 
-
 <script>
-
   timeoutIds = [];
 
   function populateDemo(imgs, num) {
@@ -1021,7 +1090,6 @@
     var answer = document.getElementById("answer-" + num);
 
     // Use the same src in the expanded image as the image being clicked on from the grid
-    // expandImg.src = imgs.src.replace(".png", ".mp4");
     expandImg.src = imgs.src.replace(".webp", ".mp4");
     expandImg.src = expandImg.src.replace("resize_", "pred_");
     expandImg.src = expandImg.src.replace("inputs", "outputs");
@@ -1073,7 +1141,6 @@
     }
   }
 
-
   document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.navbar-item');
     const sections = Array.from(navLinks).map(link => {
@@ -1093,34 +1160,8 @@
     changeLinkState();
     window.addEventListener('scroll', changeLinkState);
   });
-
-
-
-
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.navbar-item');
-    const sections = Array.from(navLinks).map(link => {
-      const sectionId = link.getAttribute('href');
-      return document.querySelector(sectionId);
-    });
-
-    function changeLinkState() {
-      let index = sections.length;
-
-      while (--index && window.scrollY + 50 < sections[index].offsetTop) { }
-
-      navLinks.forEach((link) => link.classList.remove('is-active'));
-      navLinks[index].classList.add('is-active');
-    }
-
-    changeLinkState();
-    window.addEventListener('scroll', changeLinkState);
-  });
-
 
   // Fancy charts
-
 
   function darkenColor(color, factor = 1.8) {
     const rgba = color.match(/\d+(\.\d+)?/g).map(Number);
@@ -1221,8 +1262,8 @@
 
   // Highlight bars for the first chart (if any)
   const highlightBarsChart1 = [
-    { datasetIndex: 0, dataIndex: 0, color: '0, 0, 255' }, // 'All classes' bar on 'articulate anything'
-  ]; // Empty array if no bars to highlight
+    { datasetIndex: 0, dataIndex: 0, color: '0, 0, 255' }, // 'All classes' bar on 'Articulate Anything'
+  ];
 
   // Highlight bars for the second chart
   const highlightBarsChart2 = [
@@ -1340,8 +1381,6 @@
     return chart1;
   }
 
-
-
   function initChart2() {
     const ctx = document.getElementById('articulationChart').getContext('2d');
 
@@ -1443,8 +1482,6 @@
     });
     return chart2;
   }
-
-
 
   function initChart3() {
     const ctxLinkPlacement = document.getElementById('linkPlacementChart').getContext('2d');
@@ -1643,7 +1680,162 @@
   }
 
 
+  function initChart4() {
+    const ctxInContextLinkPlacement = document.getElementById('inContextLinkPlacementChart').getContext('2d');
+    const ctxInContextJointPrediction = document.getElementById('inContextJointPredictionChart').getContext('2d');
 
+    const commonOptionsLink = {
+      responsive: true,
+      layout: {
+        padding: {
+          top: 1,
+          right: 30,
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Number of In-Context Examples',
+            font: {
+              size: 20,
+              weight: 'bold'
+            }
+          },
+          ticks: {
+            font: {
+              size: 20,
+              weight: 'bold'
+            }
+          }
+        },
+        y: {
+          beginAtZero: false,
+          min: 50,  // Changed to start at 50
+          max: 100,
+          title: {
+            display: true,
+            text: 'Success Rate (%)',
+            font: {
+              size: 24,
+              weight: 'bold'
+            }
+          },
+          ticks: {
+            stepSize: 25,
+            callback: function (value) {
+              return value + '%';
+            },
+            font: {
+              size: 18
+            }
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          callbacks: {
+            label: function (context) {
+              let label = '';
+              if (context.parsed.y !== null) {
+                label += context.parsed.y.toFixed(1) + '%';
+              }
+              return label;
+            }
+          }
+        },
+        title: {
+          display: false
+        }
+      },
+      animation: {
+        duration: 1500,
+        easing: 'easeOutQuart'
+      }
+    };
+
+    const commonOptionsJoint = {
+      ...commonOptionsLink,
+      scales: {
+        ...commonOptionsLink.scales,
+        y: {
+          ...commonOptionsLink.scales.y,
+          min: 0,  // Joint prediction starts at 0
+          max: 100
+        }
+      }
+    };
+
+    // Plugin to display values on top of each point
+    const displayValuesPlugin = {
+      id: 'displayValues',
+      afterDatasetsDraw: chart => {
+        const ctx = chart.ctx;
+        chart.data.datasets.forEach((dataset, i) => {
+          chart.getDatasetMeta(i).data.forEach((point, index) => {
+            const value = dataset.data[index];
+            if (value !== null && value !== undefined) {
+              const { x, y } = point.tooltipPosition();
+              ctx.fillStyle = 'black';
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'bottom';
+              ctx.font = '18px Arial';
+              ctx.fillText(value.toFixed(1) + '%', x, y - 10);
+            }
+          });
+        });
+      }
+    };
+
+    // In-Context Link Placement Chart
+    const inContextLinkPlacementChart = new Chart(ctxInContextLinkPlacement, {
+      type: 'line',
+      data: {
+        labels: [0, 5, 10],
+        datasets: [{
+          label: 'Link Placement',
+          data: [58.4, 90.2, 96.5], // Changed initial value to 50.0
+          backgroundColor: 'rgba(135, 206, 250, 0.8)',
+          borderColor: 'rgba(135, 206, 250, 1)',
+          borderWidth: 2,
+          fill: false,
+          tension: 0.1,
+          pointStyle: 'circle',
+          pointRadius: 6,
+          pointHoverRadius: 8,
+        }]
+      },
+      options: commonOptionsLink,
+      plugins: [displayValuesPlugin]
+    });
+
+    // In-Context Joint Prediction Chart
+    const inContextJointPredictionChart = new Chart(ctxInContextJointPrediction, {
+      type: 'line',
+      data: {
+        labels: [0, 5, 10, 20],
+        datasets: [{
+          label: 'Joint Prediction',
+          data: [4.6, 17.8, 44.5, 77.7],
+          backgroundColor: 'rgba(255, 99, 132, 0.8)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 2,
+          fill: false,
+          tension: 0.1,
+          pointStyle: 'circle',
+          pointRadius: 6,
+          pointHoverRadius: 8,
+        }]
+      },
+      options: commonOptionsJoint,
+      plugins: [displayValuesPlugin]
+    });
+
+    return [inContextLinkPlacementChart, inContextJointPredictionChart];
+  }
 
 
   function animateChart(chartInstance, highlightAnimationFrameVar) {
@@ -1679,12 +1871,9 @@
     const highlightAnimationFrameVar1 = { value: null };
     const highlightAnimationFrameVar2 = { value: null };
 
-
     const [linkPlacementChart, jointPredictionChart] = initChart3();
     const highlightAnimationFrameVar3 = { value: null };
     const highlightAnimationFrameVar4 = { value: null };
-
-
 
     // Start animations for both charts
     animateChart(chart1, highlightAnimationFrameVar1);
@@ -1744,6 +1933,32 @@
 
     observer3.observe(document.querySelector('#linkPlacementChart').parentElement);
 
+    // Initialize the new in-context learning charts
+    const [inContextLinkPlacementChart, inContextJointPredictionChart] = initChart4();
+    const highlightAnimationFrameVar5 = { value: null };
+    const highlightAnimationFrameVar6 = { value: null };
+
+    // Intersection Observer for the in-context learning charts
+    const observer4 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          animateChart(inContextLinkPlacementChart, highlightAnimationFrameVar5);
+          animateChart(inContextJointPredictionChart, highlightAnimationFrameVar6);
+        } else {
+          entry.target.classList.remove('visible');
+          if (highlightAnimationFrameVar5.value) {
+            cancelAnimationFrame(highlightAnimationFrameVar5.value);
+          }
+          if (highlightAnimationFrameVar6.value) {
+            cancelAnimationFrame(highlightAnimationFrameVar6.value);
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer4.observe(document.querySelector('#inContextLinkPlacementChart').parentElement);
+    observer4.observe(document.querySelector('#inContextJointPredictionChart').parentElement);
 
   });
 
