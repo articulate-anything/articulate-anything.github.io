@@ -264,6 +264,85 @@
 
 
 
+    .sidebarsWrapper {
+      height: 100%;
+      right: 0;
+      position: fixed;
+      width: 200px;
+    }
+
+    .sidebars {
+      position: fixed;
+      right: 0px;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+
+    .sidebars .barWrapper {
+      display: block;
+      text-align: right;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .sidebars .barWrapper span {
+      -webkit-transform: translate(0, -15px);
+      -ms-transform: translate(0, -15px);
+      transform: translate(0, -15px);
+      margin-right: 10px;
+      display: inline-block;
+      opacity: 0;
+      -webkit-transition: opacity 0.45s, color 0.3s;
+      -o-transition: opacity 0.45s, color 0.3s;
+      transition: opacity 0.45s, color 0.3s;
+      color: rgba(62, 75, 115, 0.45);
+    }
+
+    .sidebars .bar {
+      height: 35px;
+      width: 5px;
+      margin-right: 25px;
+      background-color: rgba(62, 75, 115, 0.15);
+      -webkit-transition: background-color 0.3s, margin-right 0.3s;
+      -o-transition: background-color 0.3s, margin-right 0.3s;
+      transition: background-color 0.3s, margin-right 0.3s;
+      margin-bottom: 5px;
+      display: inline-block;
+
+    }
+
+    .sidebars .barWrapper:hover .bar {
+      background-color: rgba(62, 75, 115, 0.85);
+      margin-right: 30px;
+    }
+
+    .sidebars .barWrapper:hover span {
+      color: var(--sg1);
+    }
+
+    .sidebars .barWrapper.inview .bar {
+      background-color: rgba(62, 75, 115, 0.85);
+    }
+
+    .sidebars .barWrapper.inview span {
+      color: var(--sg1);
+    }
+
+    @media only screen and (max-width:1450px) {
+      .sidebars {
+        display: none;
+      }
+
+      .sidebarsWrapper {
+        display: none;
+      }
+    }
+
+
+
+
     .chart-container {
       width: 80%;
       max-width: 1200px;
@@ -298,6 +377,47 @@
   </nav>
  -->
 
+
+
+  <div class="sidebarsWrapper">
+    <div class="sidebars">
+      <a class="barWrapper" clear href="#abstract" id="bar2">
+        <span>Abstract</span>
+        <div class="bar"></div>
+      </a>
+      <a class="barWrapper" clear href="#overview" id="bar3">
+        <span>Overview</span>
+        <div class="bar"></div>
+      </a>
+      <a class="barWrapper" clear href="#method" id="bar4">
+        <span>Method</span>
+        <div class="bar"></div>
+      </a>
+      <a class="barWrapper" clear href="#demo" id="bar5">
+        <span>In-the-wild Reconstructions</span>
+        <div class="bar"></div>
+      </a>
+      <a class="barWrapper" clear href="#robotics-application" id="bar6">
+        <span>Robotics Application</span>
+        <div class="bar"></div>
+      </a>
+      <a class="barWrapper" clear href="#mesh-gen" id="bar7">
+        <span>Mesh Generation</span>
+        <div class="bar"></div>
+      </a>
+      <a class="barWrapper" clear href="#quantitative-results" id="bar8">
+        <span>Quantitative Results</span>
+        <div class="bar"></div>
+      </a>
+      <a class="barWrapper" clear href="#bibtex" id="bar9">
+        <span>BibTeX</span>
+        <div class="bar"></div>
+      </a>
+    </div>
+  </div>
+
+
+
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
@@ -309,6 +429,11 @@
               <span class="subtitle">Automatic Modeling of Articulated Objects via a Vision-Language Foundation
                 Model</span>
             </h1>
+
+            <p style="font-size: 1.25rem; margin: 1rem 0;">
+              <b>🎉 Our paper has been accepted to <span style="color:#3273dc;">ICLR 2025</span>! 🎉</b>
+            </p>
+
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a target="_blank" rel="noopener noreferrer" href="https://vlongle.github.io">Long Le</a></span>
@@ -1878,6 +2003,46 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+
+    // bar stuff from skill-diffuser website
+
+    let sectionBars = document.querySelectorAll(".barWrapper");
+
+    window.addEventListener('scroll', function () {
+      let py = window.pageYOffset;
+      let buffer = window.innerHeight / 2;
+
+      document.querySelectorAll(".barWrapper").forEach(bar => bar.classList.remove("inview"));
+
+      for (let i = sectionBars.length - 1; i >= 0; i--) {
+        const elem = document.getElementById(
+          sectionBars[i].getAttribute('href').slice(1)
+        );
+        if (py > elem.offsetTop - buffer + 55) {
+          sectionBars[i].classList.add("inview");
+          break;
+        }
+      }
+    });
+
+    const sidebar = document.querySelector('.sidebarsWrapper');
+    sidebar.addEventListener('mouseenter', function () {
+      document.querySelectorAll('.sidebars span').forEach(span => {
+        span.style.opacity = '1';
+      });
+    });
+
+    sidebar.addEventListener('mouseleave', function () {
+      document.querySelectorAll('.sidebars span').forEach(span => {
+        span.style.opacity = '0';
+      });
+    });
+
+    window.dispatchEvent(new Event('scroll'));
+
+
+
+
     const chart1 = initChart1();
     const chart2 = initChart2();
 
